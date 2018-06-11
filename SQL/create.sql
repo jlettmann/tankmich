@@ -1,7 +1,5 @@
---[use]
-create DATABASE tankmich;
-USE tankmich;
-create TABLE Stations (
+PRAGMA foreign_keys = ON;
+create table Stations (
 	stationId  varchar(255) PRIMARY KEY,
 	stationName varchar(255),
 	stationOpen binary,
@@ -10,40 +8,36 @@ create TABLE Stations (
 	geoLat float,
 	geoLon float,
 	street varchar(255),
-	houseNr int
-	)
-	
-create TABLE GasType (
-	gasTypeId int PRIMARY KEY,
-	gasTypeName varchar(64),
-	gasTypeNameShort varchar(16)
-	)
-	
-create TABLE GasPrice(
+	houseNr integer
+	);
+create table GasType(gasTypeId int, gasTypeName varchar(64), gasTypeNameShort varchar(16),
+PRIMARY KEY (gasTypeId)
+);
+create table GasPrice(
 	stationId int,
-	FOREIGN KEY stationId REFERENCES Stations(stationId),
 	gasTypeId int,
-	FOREIGN KEY gasTypeId REFERENCES GasType(gasTypeId)
-	price float
-	)
+	price float,
+	FOREIGN KEY (gasTypeId) REFERENCES GasType(gasTypeId),
+	FOREIGN KEY (stationId) REFERENCES Stations(stationId)
+	);
 
-create Table UserData(
+create table UserData(
 	userId int PRIMARY KEY,
 	userName varchar(16),
 	password varchar(32)
-	)
+	);
 	
-create Table UserPreferences(
+create table UserPreferences(
 	userId int,
-	FOREIGN KEY userId REFERENCES UserData(userId),
 	brand varchar(255),
-	FOREIGN KEY brand REFERENCES Stations(stationBrand),
-	priority int
-	)
+	priority int,
+	FOREIGN KEY (userId) REFERENCES UserData(userId),
+	FOREIGN KEY (brand) REFERENCES Stations(stationBrand)
+	);
 	
-create TABLE UserHomeStation(
+create table UserHomeStation(
 	userId int,
-	FOREIGN KEY userId REFERENCES UserData(userId),
 	stationId varchar(255),
-	FOREIGN KEY stationId REFERENCES Stations(stationId)
-	)
+	FOREIGN KEY (stationId) REFERENCES Stations(stationId),
+	FOREIGN KEY (userId) REFERENCES UserData(userId)
+	);
