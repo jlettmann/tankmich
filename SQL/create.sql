@@ -2,9 +2,10 @@ PRAGMA foreign_keys = ON;
 create table Stations (
 	stationId  varchar(255) PRIMARY KEY,
 	stationName varchar(255),
-	stationOpen binary,
 	stationBrand varchar(255),
 	stationPlace varchar(255),
+	stationPostCode int,
+	stationOpenTime varchar(255),
 	geoLat float,
 	geoLon float,
 	street varchar(255),
