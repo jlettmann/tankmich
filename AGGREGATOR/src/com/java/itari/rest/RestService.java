@@ -1,14 +1,15 @@
 package com.java.itari.rest;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Map;
 
 import com.java.itari.data.enums.RESTMethod;
+import org.apache.http.client.HttpClient;
+
 
 public class RestService {
+	HttpClient client = new HttpClient();
 	
-	public <T> RestResponse<T> execute(Request<T> request){
+	public <T> RestResponse<T> execute(Request request){
 		//TODO: implement rest access
 		
 		RestResponse<T> response = null;

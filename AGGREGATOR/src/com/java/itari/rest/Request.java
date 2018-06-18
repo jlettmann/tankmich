@@ -9,13 +9,11 @@ import java.lang.reflect.Modifier;
 
 import com.java.itari.data.enums.RESTMethod;
 
-public class Request<T> {
+public class Request {
 	public final RESTMethod  method;
-	public final T object;
 	public Map<String, Object> parameters;
-	public Request(T object, RESTMethod method){
+	public Request(Object object, RESTMethod method){
 		this.method = method;
-		this.object = object;
 		parameters = new HashMap<String, Object>();
 		if(object!=null) {
 
@@ -40,9 +38,8 @@ public class Request<T> {
 			});
 		}
 	}
-	public Request(T object, RESTMethod method, Map<String, Object> params) {
+	public Request(RESTMethod method, Map<String, Object> params) {
 		this.method = method;
-		this.object = object;
 		this.parameters = params;
 	}
 }
