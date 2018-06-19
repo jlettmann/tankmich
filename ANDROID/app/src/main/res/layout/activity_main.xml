@@ -15,15 +15,29 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="235dp">
 
-        <ListView
-            android:id="@+id/nearest"
+        <TextView
+            android:id="@+id/lbl_nearest"
             android:layout_width="match_parent"
-            android:layout_height="89dp" />
+            android:layout_height="wrap_content"
+            android:text="Tankstellen in Ihrer Nähe:" />
 
         <ListView
-            android:id="@+id/favourites"
+            android:id="@+id/lv_near"
             android:layout_width="match_parent"
-            android:layout_height="63dp" >
+            android:layout_height="180dp" >
+
+        </ListView>
+
+        <TextView
+            android:id="@+id/lbl_favourites"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ihre Lieblingstankstellen:" />
+
+        <ListView
+            android:id="@+id/lv_favourites"
+            android:layout_width="match_parent"
+            android:layout_height="63dp">
 
         </ListView>
 

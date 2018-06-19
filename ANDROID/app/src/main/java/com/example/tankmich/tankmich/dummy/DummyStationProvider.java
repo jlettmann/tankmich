@@ -16,7 +16,7 @@ public class DummyStationProvider {
         station.brand = "ARAL";
         station.place = "Paderborn";
         station.street = "Neuhäuser Straße";
-        station.houseNumber ="34";
+        station.houseNumber =34;
         station.postCode = 33100;
         station.isOpen =true;
         station.distance = 2;
